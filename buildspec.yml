@@ -5,12 +5,9 @@ phases:
     runtime-versions:
       java: corretto17
     commands:
-      - sam build
-
-  build:
-    commands:
-      - sam package --template-file template.yaml --s3-bucket aws-sam-cli-managed-default-samclisourcebucket-eine28t2pxit --output-template-file output-template.yaml
+      - mvn clean package
 
 artifacts:
   files:
-    - output-template.yaml
+    - template.yaml
+    - HelloWorldFunction/target/*.jar
